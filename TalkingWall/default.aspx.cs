@@ -14,8 +14,7 @@ namespace TalkingWall
         {
             if (!Page.IsPostBack)
             {
-                WallGrid.DataSource = Global.Messages;
-                WallGrid.DataBind();
+                RefreshData();
             }
         }
 
@@ -23,8 +22,16 @@ namespace TalkingWall
         {
             var msg = new WallMessage() { Message = WallInput.Text, Name=WallName.Text, TimeStamp = DateTime.Now };
             Global.Messages.Add(msg);
-            WallGrid.DataSource = Global.Messages;
+            RefreshData();
+        }
+
+        private void RefreshData()
+        {
+            WallGrid.DataSource = Global.Messages.Reverse();
             WallGrid.DataBind();
+
+            WallRepeater.DataSource = Global.Messages.Reverse();
+            WallRepeater.DataBind();
         }
     }
 }

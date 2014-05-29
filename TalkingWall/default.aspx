@@ -16,6 +16,23 @@
         <asp:Button Text="Post" runat="server" ID="PostButton" OnClick="PostButton_Click"/>
     </div>
         <div style="text-align:center">
+            <asp:Repeater ID="WallRepeater" runat="server">
+                <HeaderTemplate>
+                    <div>The Wall</div>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <div>
+                        <div><%# DataBinder.Eval(Container.DataItem, "Message")%></div>
+                        <div>
+                            <span><%# DataBinder.Eval(Container.DataItem, "Name")%></span>
+                            <span><%# DataBinder.Eval(Container.DataItem, "TimeStamp")%></span>
+                        </div>
+                    </div>
+                </ItemTemplate>
+                <SeparatorTemplate>
+                    <div style="width:100%; height:25px;"></div>
+                </SeparatorTemplate>
+            </asp:Repeater>
             <asp:GridView ID="WallGrid" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" >
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <EditRowStyle BackColor="#999999" />
