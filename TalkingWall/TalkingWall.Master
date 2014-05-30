@@ -1,0 +1,80 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TalkingWall.master.cs" Inherits="TalkingWall.TalkingWall" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<!-- <body class="highline three-col logged-in bg-info"> -->
+<body class="bg-info">
+    <form id="form1" runat="server">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#home">
+                        <span class="glyphicon glyphicon-home"></span>
+                        <span class="text">Home</span>
+                    </a>
+                    <a class="navbar-brand" href="#about">
+                        <span class="glyphicon glyphicon-bullhorn"></span>
+                        <span class="text">About</span>
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <div class="navbar-form navbar-right" role="form">
+                        <div class="form-group">
+                            <asp:TextBox runat="server" ID="BarMessageName" CssClass="form-control" placeholder="User Name" />
+                        </div>
+                        <div class="form-group">
+                            <asp:TextBox runat="server" ID="BarMessageText" CssClass="form-control" placeholder="Message" />
+                        </div>
+                        <asp:Button ID="MessagePostButton" runat="server" CssClass="btn btn-success" Text="Post" />
+                    </div>
+                </div>
+                <!--/.navbar-collapse -->
+            </div>
+        </div>
+             
+
+        <div class="jumbotron" style="margin-top:10px;">
+            <span class="h1">The Talking Wall</span>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <asp:ContentPlaceHolder ID="LeftCol" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="col-md-9 content-main">
+                <asp:ContentPlaceHolder ID="MainCol" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+    </form>
+</body>
+</html>
