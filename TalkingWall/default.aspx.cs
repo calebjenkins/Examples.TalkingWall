@@ -8,7 +8,7 @@ using TalkingWall.Domain;
 
 namespace TalkingWall
 {
-    public partial class _default : System.Web.UI.Page
+    public partial class defaultPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,7 +20,7 @@ namespace TalkingWall
 
         protected void PostButton_Click(object sender, EventArgs e)
         {
-            var msg = new WallMessage() { Message = WallInput.Text, Name=WallName.Text, TimeStamp = DateTime.Now };
+            var msg = new WallMessage() { Message = WallInput.Text, Name = WallName.Text, TimeStamp = DateTime.Now };
             Global.Messages.Add(msg);
             RefreshData();
         }
@@ -32,6 +32,12 @@ namespace TalkingWall
 
             WallRepeater.DataSource = Global.Messages.Reverse();
             WallRepeater.DataBind();
+        }
+
+        protected void ClearButton_Click(object sender, EventArgs e)
+        {
+            Global.Messages.Clear();
+            RefreshData();
         }
     }
 }

@@ -10,60 +10,69 @@
 namespace TalkingWall {
     
     
-    public partial class defaultPage {
+    public partial class TalkingWall {
         
         /// <summary>
-        /// WallInput control.
+        /// head control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox WallInput;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
-        /// WallName control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox WallName;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// PostButton control.
+        /// BarMessageName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button PostButton;
+        protected global::System.Web.UI.WebControls.TextBox BarMessageName;
         
         /// <summary>
-        /// WallRepeater control.
+        /// BarMessageText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater WallRepeater;
+        protected global::System.Web.UI.WebControls.TextBox BarMessageText;
         
         /// <summary>
-        /// WallGrid control.
+        /// MessagePostButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView WallGrid;
+        protected global::System.Web.UI.WebControls.Button MessagePostButton;
         
         /// <summary>
-        /// ClearButton control.
+        /// LeftCol control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ClearButton;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder LeftCol;
+        
+        /// <summary>
+        /// MainCol control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainCol;
     }
 }
