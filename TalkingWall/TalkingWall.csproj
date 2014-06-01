@@ -107,9 +107,9 @@
       <Project>{9d0c3b37-457f-4ab1-a145-8296b1c3c35a}</Project>
       <Name>TalkingWall.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TalkingWall.UI.Controlers\TalkingWall.UI.Controlers.csproj">
+    <ProjectReference Include="..\TalkingWall.UI.Controlers\TalkingWall.UI.Presenters.csproj">
       <Project>{e247cb23-bad8-40eb-97f6-36d9b0813b0a}</Project>
-      <Name>TalkingWall.UI.Controlers</Name>
+      <Name>TalkingWall.UI.Presenters</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

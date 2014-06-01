@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TalkingWall.Domain;
 
-namespace TalkingWall.UI.Controlers
+namespace TalkingWall.UI.Presenters
 {
     public interface ITalkingWallView
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TalkingWall.Domain;
 
-namespace TalkingWall.UI.Controlers
+namespace TalkingWall.UI.Presenters
 {
     public class MainPagePresenter
     {
@@ -20,6 +20,14 @@ namespace TalkingWall.UI.Controlers
             _view.PostMessageClick += view_PostMessageClick;
         }
 
+        void view_PageLoad(object sender, EventArgs e)
+        {
+            if (!_view.IsPostBack)
+            {
+                _view.BindData(_messages);
+            }
+        }
+
         void view_PostMessageClick(object sender, EventArgs e)
         {
             var msg = new WallMessage() { Message = _view.Message, Name = _view.Name, TimeStamp = DateTime.Now };
@@ -31,14 +39,6 @@ namespace TalkingWall.UI.Controlers
         {
             _messages.Clear();
             _view.BindData(_messages);
-        }
-
-        void view_PageLoad(object sender, EventArgs e)
-        {
-            if (!_view.IsPostBack)
-            {
-                _view.BindData(_messages);
-            }
         }
     }
 }

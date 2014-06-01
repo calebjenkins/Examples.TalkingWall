@@ -7,8 +7,8 @@
     <ProjectGuid>{E247CB23-BAD8-40EB-97F6-36D9B0813B0A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TalkingWall.UI.Controlers</RootNamespace>
-    <AssemblyName>TalkingWall.UI.Controlers</AssemblyName>
+    <RootNamespace>TalkingWall.UI.Presenters</RootNamespace>
+    <AssemblyName>TalkingWall.UI.Presenters</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
