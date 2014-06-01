@@ -53,6 +53,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="MainPage\When_Clear_Is_Clicked.cs" />
     <Compile Include="MainPage\When_Page_Loads.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MainPage\When_Post_Is_Clicked.cs" />
