@@ -25,9 +25,11 @@
 
     <div class="row">
         <div class="col-lg-6 col-lg-offset-1 highlight"   >
+            <div class="h3">The Wall<hr /></div>
+
         <asp:Repeater ID="WallRepeater" runat="server">
             <HeaderTemplate>
-                    <div class="h3">The Wall<hr /></div>
+                    
             </HeaderTemplate>
             <ItemTemplate>
                 <div class="row">
