@@ -1,0 +1,55 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "The Talking Wall";
+}
+
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-1 highlight">
+        <div class="h3">The Wall<hr /></div>
+
+        <div class="row">
+            <div class="row">
+                <div class="h4 col-lg-10 col-lg-offset-1">
+                    @* <%# DataBinder.Eval(Container.DataItem, "Message")%> *@
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-lg-offset-1 text-muted">
+                    @* <%# DataBinder.Eval(Container.DataItem, "Name")%> *@
+                </div>
+                <div class="col-lg-4 col-lg-offset-3 text-muted">
+                    @* <%# DataBinder.Eval(Container.DataItem, "TimeStamp") %>  *@
+                </div>
+            </div>
+        </div>
+            <div class="divider" style="color:orangered;">
+                <hr style="width:90%; margin-bottom:20px;" />
+            </div>
+    
+
+
+        @section LeftCol {
+
+            <div class="module">
+                <fieldset>
+                    <div class="container">
+                        <legend class="col-lg-offset-1">Post to Wall</legend>
+                        <div class="form-group">
+                            <div class="col-lg-offset-1">
+                                <input type="text" class="form-control" placeholder="Message" id="WallInput" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-1">
+                                <textarea id="WallName" class="form-control" placeholder="User Name"></textarea>
+                                <button style="margin-top: 5px; float: right;" id="PostButton" class="btn btn-success">Post</button>
+
+                            </div>
+                        </div>
+                        </
+                    </div>
+                </fieldset>
+            </div>
+
+
+        }

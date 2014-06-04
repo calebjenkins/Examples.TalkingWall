@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Web.Mvc;
+using System.Web.Routing;
+using System.Web.Optimization;
 using TalkingWall.Domain;
 
 namespace TalkingWall
@@ -30,6 +33,10 @@ namespace TalkingWall
         protected void Application_Start(object sender, EventArgs e)
         {
            Messages = new Collection<WallMessage>();
+           AreaRegistration.RegisterAllAreas();
+           RouteConfig.RegisterRoutes(RouteTable.Routes);
+           FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+           BundleConfig.RegisterBundles(BundleTable.Bundles);            
         }
 
         protected void Session_Start(object sender, EventArgs e)
