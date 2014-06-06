@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,9 +10,9 @@ namespace TalkingWall.Controllers
 {
     public class WallController : Controller
     {
-        public WallController(ICollection<WallMessage> messages)
+        public WallController()
         {
-            _messages = messages;
+            _messages = Global.Messages;
         }
         ICollection<WallMessage> _messages;
 
@@ -19,6 +20,8 @@ namespace TalkingWall.Controllers
         // GET: Wall
         public ActionResult Index()
         {
+
+            ViewBag.WallMessages = _messages.Reverse();
             
             return   View();
         }

@@ -6,26 +6,31 @@
 <div class="row">
     <div class="col-lg-6 col-lg-offset-1 highlight">
         <div class="h3">The Wall<hr /></div>
+        @foreach (var msg in ViewBag.WallMessages)
+        {
 
-        <div class="row">
             <div class="row">
-                <div class="h4 col-lg-10 col-lg-offset-1">
-                    @* <%# DataBinder.Eval(Container.DataItem, "Message")%> *@
+                <div class="row">
+                    <div class="h4 col-lg-10 col-lg-offset-1">
+                        @* <%# DataBinder.Eval(Container.DataItem, "Message")%> *@
+                        @msg.Message
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-lg-offset-1 text-muted">
+                        @* <%# DataBinder.Eval(Container.DataItem, "Name")%> *@
+                        @msg.Name
+                    </div>
+                    <div class="col-lg-4 col-lg-offset-3 text-muted">
+                        @* <%# DataBinder.Eval(Container.DataItem, "TimeStamp") %>  *@
+                        @msg.TimeStamp
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-lg-offset-1 text-muted">
-                    @* <%# DataBinder.Eval(Container.DataItem, "Name")%> *@
-                </div>
-                <div class="col-lg-4 col-lg-offset-3 text-muted">
-                    @* <%# DataBinder.Eval(Container.DataItem, "TimeStamp") %>  *@
-                </div>
-            </div>
-        </div>
             <div class="divider" style="color:orangered;">
                 <hr style="width:90%; margin-bottom:20px;" />
             </div>
-    
+        }
 
 
         @section LeftCol {
