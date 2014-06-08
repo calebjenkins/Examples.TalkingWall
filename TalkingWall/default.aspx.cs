@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using TalkingWall.Domain;
 using TalkingWall.UI.Presenters;
+using TalkingWall.Domain;
 
 namespace TalkingWall
 {
@@ -51,5 +51,6 @@ namespace TalkingWall
             get { return this.WallInput.Text; }
             set { WallInput.Text = value; }
         }
+
     }
 }

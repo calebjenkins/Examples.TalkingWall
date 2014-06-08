@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -22,8 +23,24 @@ namespace TalkingWall.Controllers
         {
 
             ViewBag.WallMessages = _messages.Reverse();
-            
-            return   View();
+
+            ICollection<WallMessage> msgs = _messages;
+            ICollection<WallMessage> ModelMsgs = new Collection<WallMessage>();
+            foreach(var m in _messages.Reverse())
+            {
+                var mg = new WallMessage()
+                {
+                     Message = m.Message,
+                     Name = m.Name,
+                     TimeStamp = m.TimeStamp
+                };
+
+                ModelMsgs.Add(mg);
+            }
+
+
+            return View(msgs);
+            // return   View(msgs);
         }
 
         // GET: Wall/Details/5
@@ -33,9 +50,11 @@ namespace TalkingWall.Controllers
         }
 
         // GET: Wall/Create
+       // [HttpPost]
         public ActionResult Create(WallMessage message)
         {
-            return View();
+        
+            return View("Index");
         }
 
         // POST: Wall/Create
@@ -44,7 +63,16 @@ namespace TalkingWall.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                var msg = new WallMessage()
+                {
+                    Name = collection["Name"],
+                    Message = collection["Message"],
+                    TimeStamp = DateTime.Now
+                };
+
+                Global.Messages.Add(msg);
+
+                return View("Index", _messages);
 
                 return RedirectToAction("Index");
             }

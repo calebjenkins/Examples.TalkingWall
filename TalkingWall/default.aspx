@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Talking Wall" Language="C#" MasterPageFile="~/TalkingWall.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="TalkingWall.defaultPage" %>
+﻿<%@ Page Title="Talking Wall" Language="C#" MasterPageFile="~/TalkingWallMasterPage.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="TalkingWall.defaultPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
