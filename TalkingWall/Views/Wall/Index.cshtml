@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-lg-6 col-lg-offset-1 highlight">
         <div class="h3">The Wall<hr /></div>
-        @foreach (var msg in @Model)
+        @foreach (var msg in @Model.Reverse())
         {
 
             <div class="row">
@@ -37,25 +37,25 @@
         @section LeftCol {
 
             <div class="module">
-                @using (Html.BeginForm("Create", "Wall", FormMethod.Post, new { id = "wall-post-form", name= "wall-post-form" }))
-                {
+                @* using (Html.BeginForm("Create", "Wall", FormMethod.Post, new { name = "message" })) *@
+                <form action="/Wall/Create" method="post" name="WallMessage">
                     <fieldset>
                         <div class="container">
                             <legend class="col-lg-offset-1">Post to Wall</legend>
                             <div class="form-group">
                                 <div class="col-lg-offset-1">
-                                    <textarea class="form-control" placeholder="Message" id="Message" name="Message"></textarea>
+                                    <textarea class="form-control" placeholder="Message" id="Message" name="message.Message"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-offset-1">
-                                    <input type="text" id="Name" class="form-control" placeholder="User Name" name="Name"></input>
-                                    <input type="submit" style="margin-top: 5px; float: right;" id="PostButton" class="btn btn-success" value="Post" />
+                                    <input type="text" id="Name" class="form-control" placeholder="User Name" name="message.Name">
+                                    <input type="submit" style="margin-top: 5px; float: right;" id="PostButton" class="btn btn-success" value="Post">
 
                                 </div>
                             </div>
                         </div>
                     </fieldset>
-                }
+                </form>
             </div>
         }

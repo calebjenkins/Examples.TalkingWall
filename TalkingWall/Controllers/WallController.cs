@@ -50,15 +50,34 @@ namespace TalkingWall.Controllers
         }
 
         // GET: Wall/Create
-       // [HttpPost]
+        [HttpPost]
         public ActionResult Create(WallMessage message)
         {
-        
-            return View("Index");
+
+            try
+            {
+                var msg = new WallMessage()
+                {
+                    Name = message.Name,
+                    Message = message.Message,
+                    TimeStamp = DateTime.Now
+                };
+
+                Global.Messages.Add(msg);
+
+                return View("Index", _messages);
+
+                // return RedirectToAction("Index");
+            }
+            catch
+            {
+                // return View();
+                return RedirectToAction("Index");
+            }
         }
 
         // POST: Wall/Create
-        [HttpPost]
+       // [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
             try
@@ -72,8 +91,7 @@ namespace TalkingWall.Controllers
 
                 Global.Messages.Add(msg);
 
-                return View("Index", _messages);
-
+                //return View("Index", _messages);
                 return RedirectToAction("Index");
             }
             catch
