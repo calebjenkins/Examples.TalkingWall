@@ -40,20 +40,13 @@ namespace TalkingWall.Controllers
 
 
             return View(msgs);
-            // return   View(msgs);
         }
 
-        // GET: Wall/Details/5
-        public ActionResult Get (int id)
-        {
-            return View();
-        }
 
         // GET: Wall/Create
         [HttpPost]
         public ActionResult Create(WallMessage message)
         {
-
             try
             {
                 var msg = new WallMessage()
@@ -71,7 +64,6 @@ namespace TalkingWall.Controllers
             }
             catch
             {
-                // return View();
                 return RedirectToAction("Index");
             }
         }
@@ -96,51 +88,20 @@ namespace TalkingWall.Controllers
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
 
-        // GET: Wall/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Wall/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult ClearAll()
         {
             try
             {
-                // TODO: Add update logic here
-
+                Global.Messages.Clear();
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception)
             {
-                return View();
-            }
-        }
-
-        // GET: Wall/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Wall/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
             }
         }
     }

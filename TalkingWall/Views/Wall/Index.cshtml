@@ -9,21 +9,17 @@
         <div class="h3">The Wall<hr /></div>
         @foreach (var msg in @Model.Reverse())
         {
-
             <div class="row">
                 <div class="row">
                     <div class="h4 col-lg-10 col-lg-offset-1">
-                        @* <%# DataBinder.Eval(Container.DataItem, "Message")%> *@
                         @msg.Message
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-3 col-lg-offset-1 text-muted">
-                        @* <%# DataBinder.Eval(Container.DataItem, "Name")%> *@
                         @msg.Name
                     </div>
                     <div class="col-lg-4 col-lg-offset-3 text-muted">
-                        @* <%# DataBinder.Eval(Container.DataItem, "TimeStamp") %>  *@
                         @msg.TimeStamp
                     </div>
                 </div>
@@ -51,7 +47,6 @@
                                 <div class="col-lg-offset-1">
                                     <input type="text" id="Name" class="form-control" placeholder="User Name" name="message.Name">
                                     <input type="submit" style="margin-top: 5px; float: right;" id="PostButton" class="btn btn-success" value="Post">
-
                                 </div>
                             </div>
                         </div>
