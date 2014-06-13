@@ -10,7 +10,7 @@
 namespace TalkingWall {
     
     
-    public partial class TalkingWall {
+    public partial class TalkingWallMasterPage {
         
         /// <summary>
         /// head control.
