@@ -44,7 +44,8 @@ namespace TalkingWall.Controllers
 
 
         // GET: Wall/Create
-        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [HttpPost]  
         public ActionResult Create(WallMessage message)
         {
             try
@@ -69,15 +70,16 @@ namespace TalkingWall.Controllers
         }
 
         // POST: Wall/Create
-       // [HttpPost]
+        [ValidateAntiForgeryToken]
+        // [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
             try
             {
                 var msg = new WallMessage()
                 {
-                    Name = collection["Name"],
-                    Message = collection["Message"],
+                    Name = collection["message.Name"],
+                    Message = collection["message.Message"],
                     TimeStamp = DateTime.Now
                 };
 
