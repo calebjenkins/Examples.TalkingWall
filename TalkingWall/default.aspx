@@ -25,7 +25,7 @@
 
     <div class="row">
         <div class="col-lg-6 col-lg-offset-1 highlight"   >
-        <asp:Repeater ID="WallRepeater" runat="server">
+        <asp:Repeater ID="WallRepeater" runat="server" Visible="False">
             <HeaderTemplate>
                     <div class="h3">The Wall<hr /></div>
             </HeaderTemplate>
@@ -49,7 +49,7 @@
             </SeparatorTemplate>
         </asp:Repeater>
 
-        <asp:GridView ID="WallGrid" runat="server" Visible="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <asp:GridView ID="WallGrid" runat="server" Visible="True" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
