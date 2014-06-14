@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9D0C3B37-457F-4AB1-A145-8296B1C3C35A}</ProjectGuid>
+    <ProjectGuid>{E247CB23-BAD8-40EB-97F6-36D9B0813B0A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TalkingWall.Domain</RootNamespace>
-    <AssemblyName>TalkingWall.Domain</AssemblyName>
+    <RootNamespace>TalkingWall.UI.Presenters</RootNamespace>
+    <AssemblyName>TalkingWall.UI.Presenters</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,9 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\IWallMessageRepository.cs" />
-    <Compile Include="WallMessage.cs" />
+    <Compile Include="EventExtentions.cs" />
+    <Compile Include="ITalkingWallView.cs" />
+    <Compile Include="MainPagePresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TalkingWall.Domain\TalkingWall.Domain.csproj">
+      <Project>{9d0c3b37-457f-4ab1-a145-8296b1c3c35a}</Project>
+      <Name>TalkingWall.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

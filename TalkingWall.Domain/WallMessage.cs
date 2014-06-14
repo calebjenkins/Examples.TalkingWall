@@ -14,3 +14,7 @@ namespace TalkingWall.Domain
 
     }
 }
+
+namespace TalkingWall.Services
+{
+}
