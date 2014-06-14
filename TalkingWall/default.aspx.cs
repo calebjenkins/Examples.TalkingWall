@@ -8,6 +8,7 @@ using TalkingWall.UI.Presenters;
 using TalkingWall.Domain;
 using TalkingWall.Domain.Services;
 using TalkingWall.Data;
+using System.Collections.ObjectModel;
 
 namespace TalkingWall
 {
@@ -37,7 +38,7 @@ namespace TalkingWall
             ClearMessagesClick.Raise();
         }
 
-        public void BindData(ICollection<WallMessage> messages)
+        public void BindData(Collection<WallMessage> messages)
         {
             WallRepeater.DataSource = messages.Reverse();
             WallRepeater.DataBind();

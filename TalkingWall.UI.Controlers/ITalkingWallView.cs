@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace TalkingWall.UI.Presenters
         event EventHandler PostMessageClick;
         event EventHandler ClearMessagesClick;
         bool IsPostBack { get; }
-        void BindData(ICollection<WallMessage> messages);
+        void BindData(Collection<WallMessage> messages);
         string Name { get; set; }
         string Message { get; set; }
     }

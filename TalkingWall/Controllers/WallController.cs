@@ -60,7 +60,7 @@ namespace TalkingWall.Controllers
 
                msgRepo.Messages.Add(msg);
 
-                return View("Index", msgRepo);
+                return View("Index", msgRepo.Messages);
             }
             catch
             {

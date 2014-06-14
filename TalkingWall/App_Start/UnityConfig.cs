@@ -4,6 +4,8 @@ using Microsoft.Practices.Unity.Configuration;
 using TalkingWall.Domain;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using TalkingWall.Domain.Services;
+using TalkingWall.Data;
 
 namespace TalkingWall.App_Start
 {
@@ -39,7 +41,7 @@ namespace TalkingWall.App_Start
             // container.LoadConfiguration();
 
             //container.RegisterInstance<ICollection<WallMessage>>(Global.Messages);
-            container.RegisterInstance<ICollection<WallMessage>>(new Collection<WallMessage>());
+            container.RegisterType<IWallMessageRepository, MessageRepository>();
         }
     }
 }

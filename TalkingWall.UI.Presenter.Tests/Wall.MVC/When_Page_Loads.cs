@@ -20,7 +20,7 @@ namespace TalkingWall.UI.Presenter.Tests.Wall.MVC
         public void Controller_Should_Inject_Data()
         {
             
-            ICollection<WallMessage> msgs = MockRepository.GenerateMock<ICollection<WallMessage>>();
+            Collection<WallMessage> msgs = MockRepository.GenerateMock<Collection<WallMessage>>();
             IWallMessageRepository repo = MockRepository.GenerateMock<IWallMessageRepository>();
 
             WallController controller = new WallController(repo);
