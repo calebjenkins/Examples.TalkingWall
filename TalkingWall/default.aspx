@@ -21,6 +21,7 @@
         </fieldset>
     </div>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainCol" runat="server">
 
     <div class="row">
@@ -28,9 +29,7 @@
             <div class="h3">The Wall<hr /></div>
 
         <asp:Repeater ID="WallRepeater" runat="server">
-            <HeaderTemplate>
-                    
-            </HeaderTemplate>
+            
             <ItemTemplate>
                 <div class="row">
                     <div class="row">
