@@ -9,30 +9,17 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Optimization;
 using TalkingWall.Domain;
+using TalkingWall.Domain.Services;
 
 namespace TalkingWall
 {
     public class Global : System.Web.HttpApplication
     {
-
-        public static Collection<WallMessage> Messages
-        {
-            get
-            {
-                if (HttpContext.Current.Application["wall"] == null)
-                    HttpContext.Current.Application["wall"] = new Collection<WallMessage>();
-
-
-                return (Collection<WallMessage>)HttpContext.Current.Application["wall"];
-            }
-            set
-            {
-                HttpContext.Current.Application["wall"] = value;
-            }
-        }
+ 
         protected void Application_Start(object sender, EventArgs e)
         {
-           Messages = new Collection<WallMessage>();
+            //msgRepo = new WallMessageRepository();
+
            AreaRegistration.RegisterAllAreas();
            RouteConfig.RegisterRoutes(RouteTable.Routes);
            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

@@ -4,17 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TalkingWall.Domain;
+using TalkingWall.Domain.Services;
 
 namespace TalkingWall.UI.Presenters
 {
     public class MainPagePresenter
     {
         ITalkingWallView _view;
-        ICollection<WallMessage> _messages;
-        public MainPagePresenter(ITalkingWallView view, ICollection<WallMessage> messages)
+        IWallMessageRepository _messageRepo;
+        public MainPagePresenter(ITalkingWallView view, IWallMessageRepository messageRepository)
         {
             _view = view;
-            _messages = messages;
+            _messageRepo = messageRepository;
             _view.PageLoad += view_PageLoad;
             _view.ClearMessagesClick += view_ClearMessagesClick;
             _view.PostMessageClick += view_PostMessageClick;
@@ -24,21 +25,21 @@ namespace TalkingWall.UI.Presenters
         {
             if (!_view.IsPostBack)
             {
-                _view.BindData(_messages);
+                _view.BindData(_messageRepo.Messages);
             }
         }
 
         void view_PostMessageClick(object sender, EventArgs e)
         {
             var msg = new WallMessage() { Message = _view.Message, Name = _view.Name, TimeStamp = DateTime.Now };
-            _messages.Add(msg);
-            _view.BindData(_messages);
+            _messageRepo.Messages.Add(msg);
+            _view.BindData(_messageRepo.Messages);
         }
 
         void view_ClearMessagesClick(object sender, EventArgs e)
         {
-            _messages.Clear();
-            _view.BindData(_messages);
+            _messageRepo.Messages.Clear();
+            _view.BindData(_messageRepo.Messages);
         }
     }
 }

@@ -5,27 +5,29 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TalkingWall.Domain;
+using TalkingWall.Domain.Services;
 
 namespace TalkingWall.Controllers
 {
     public class WallController : Controller
     {
-        public WallController()
+        IWallMessageRepository msgRepo;
+
+        public WallController(IWallMessageRepository messagesRepository)
         {
-            _messages = Global.Messages;
+            msgRepo = messagesRepository;
         }
-        ICollection<WallMessage> _messages;
+        
 
 
         // GET: Wall
         public ActionResult Index()
         {
 
-            ViewBag.WallMessages = _messages.Reverse();
+            Collection<WallMessage> msgs = msgRepo.Messages;
 
-            ICollection<WallMessage> msgs = _messages;
-            ICollection<WallMessage> ModelMsgs = new Collection<WallMessage>();
-            foreach(var m in _messages.Reverse())
+            Collection<WallMessage> ModelMsgs = new Collection<WallMessage>();
+            foreach(var m in msgs.Reverse())
             {
                 var mg = new WallMessage()
                 {
@@ -38,7 +40,7 @@ namespace TalkingWall.Controllers
             }
 
 
-            return View(msgs);
+            return View(ModelMsgs);
         }
 
 
@@ -56,11 +58,9 @@ namespace TalkingWall.Controllers
                     TimeStamp = DateTime.Now
                 };
 
-                Global.Messages.Add(msg);
+               msgRepo.Messages.Add(msg);
 
-                return View("Index", _messages);
-
-                // return RedirectToAction("Index");
+                return View("Index", msgRepo);
             }
             catch
             {
@@ -82,7 +82,7 @@ namespace TalkingWall.Controllers
                     TimeStamp = DateTime.Now
                 };
 
-                Global.Messages.Add(msg);
+                msgRepo.Messages.Add(msg);
 
                 //return View("Index", _messages);
                 return RedirectToAction("Index");
@@ -97,7 +97,7 @@ namespace TalkingWall.Controllers
         {
             try
             {
-                Global.Messages.Clear();
+                msgRepo.Messages.Clear();
                 return RedirectToAction("Index");
             }
             catch (Exception)

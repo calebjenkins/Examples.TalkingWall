@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TalkingWall.UI.Presenters;
 using TalkingWall.Domain;
+using TalkingWall.Domain.Services;
+using TalkingWall.Data;
 
 namespace TalkingWall
 {
@@ -18,7 +20,11 @@ namespace TalkingWall
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            presenter = new MainPagePresenter((ITalkingWallView)this, Global.Messages);
+            var c = new TalkingWall.Controllers.WallController(null);
+
+            
+            IWallMessageRepository repo = new  MessageRepository();
+            presenter = new MainPagePresenter((ITalkingWallView)this,  repo);
         }
 
         protected void PostButton_Click(object sender, EventArgs e)
