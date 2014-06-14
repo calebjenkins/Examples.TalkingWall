@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using TalkingWall.Domain;
 using TalkingWall.Domain.Services;
+using TalkingWall.ViewModels;
 
 namespace TalkingWall.Controllers
 {
@@ -23,11 +24,12 @@ namespace TalkingWall.Controllers
         // GET: Wall
         public ActionResult Index()
         {
+            WallViewModel vm = new WallViewModel();
 
-            Collection<WallMessage> msgs = msgRepo.Messages;
+            vm.Messages = msgRepo.Messages;
 
             Collection<WallMessage> ModelMsgs = new Collection<WallMessage>();
-            foreach(var m in msgs.Reverse())
+            foreach(var m in vm.Messages.Reverse())
             {
                 var mg = new WallMessage()
                 {
@@ -39,8 +41,9 @@ namespace TalkingWall.Controllers
                 ModelMsgs.Add(mg);
             }
 
+            vm.Messages = ModelMsgs;
 
-            return View(ModelMsgs);
+            return View(vm);
         }
 
 
@@ -59,8 +62,12 @@ namespace TalkingWall.Controllers
                 };
 
                msgRepo.Messages.Add(msg);
+               message.Message = string.Empty;
 
-                return View("Index", msgRepo.Messages);
+               WallViewModel vm = new WallViewModel(message, msgRepo.Messages);
+                
+
+                return View("Index", vm);
             }
             catch
             {

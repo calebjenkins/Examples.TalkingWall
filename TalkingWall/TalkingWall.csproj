@@ -178,6 +178,7 @@
     <Compile Include="TalkingWallMasterPage.Master.designer.cs">
       <DependentUpon>TalkingWallMasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\WallViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap-theme.css.map" />

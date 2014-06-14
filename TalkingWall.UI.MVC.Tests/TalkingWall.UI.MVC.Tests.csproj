@@ -81,6 +81,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="FakeRepo_DumyCollection.cs" />
+    <Compile Include="When_WallMessageController_Create_.cs" />
     <Compile Include="When_WallMessageController_Index_.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

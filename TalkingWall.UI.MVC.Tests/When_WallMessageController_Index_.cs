@@ -6,6 +6,7 @@ using Rhino.Mocks;
 using TalkingWall.Domain;
 using System.Collections.ObjectModel;
 using System.Web.Mvc;
+using TalkingWall.ViewModels;
 
 namespace TalkingWall.UI.MVC.Tests
 {
@@ -33,10 +34,10 @@ namespace TalkingWall.UI.MVC.Tests
 
             WallController controller = new WallController(repo);
             var view = controller.Index() as ViewResult;
-            var model = (Collection<WallMessage>) view.ViewData.Model;
+            var vm = (WallViewModel) view.ViewData.Model;
 
-            Assert.AreEqual(1, model.Count);
-            Assert.AreEqual("Test 1", model[0].Message);
+            Assert.AreEqual(1, vm.Messages.Count);
+            Assert.AreEqual("Test 1", vm.Messages[0].Message);
 
             repo.VerifyAllExpectations();
         }
