@@ -41,38 +41,25 @@ namespace TalkingWall.UI.Presenter.Tests.MainPage
 
             _fakeRepo.Verify();
         }
-    }
-    public class FakeRepo_ExpectsOneAdd : IWallMessageRepository
-    {
 
-        bool calledOnce = false;
-        public FakeRepo_ExpectsOneAdd()
+        [TestMethod]
+        public void Presenter_Should_Clear_Message_and_Keep_Name()
         {
-            _messages = new Collection<WallMessage>();
-        }
+            _view = MockRepository.GenerateMock<ITalkingWallView>();
 
-        Collection<WallMessage> _messages;
-        public Collection<WallMessage> Messages
-        {
-            get
-            {
-                return _messages;
-            }
-            set
-            {
-                if (_messages.Count == 1)
-                    throw new Exception("Was only expecting 1 add, not a 2nd one");
+            _view.Expect(x => x.Name).Return(_testMessage.Name).Repeat.Once();
+            _view.Expect(x => x.Message).Return(_testMessage.Message).Repeat.Once();
 
-                _messages = value;
-            }
-        }
+            _view.Expect(x => x.Name = _testMessage.Name).Repeat.Once();
+            _view.Expect(x => x.Message = "").Repeat.Once();
 
-        public void Verify()
-        {
-            if(_messages.Count != 1)
-            {
-                throw new Exception("Was expecing 1 new message, instead " + _messages.Count.ToString());
-            }
+            var _fakeRepo = new FakeRepo_ExpectsOneAdd();
+
+            MainPagePresenter presenter = new MainPagePresenter(_view, _fakeRepo);
+            _view.Raise(x => x.PostMessageClick += null, this, EventArgs.Empty);
+
+            _view.VerifyAllExpectations();
+            _fakeRepo.Verify();
         }
     }
 }

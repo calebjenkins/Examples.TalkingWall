@@ -33,6 +33,9 @@ namespace TalkingWall.UI.Presenters
         {
             var msg = new WallMessage() { Message = _view.Message, Name = _view.Name, TimeStamp = DateTime.Now };
             _messageRepo.Messages.Add(msg);
+            _view.Name = msg.Name;
+            _view.Message = "";
+
             _view.BindData(_messageRepo.Messages);
         }
 
