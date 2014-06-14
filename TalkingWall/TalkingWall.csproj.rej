@@ -1,0 +1,10 @@
+diff a/TalkingWall/TalkingWall.csproj b/TalkingWall/TalkingWall.csproj	(rejected hunks)
+@@ -212,8 +212,6 @@
+     </ProjectReference>
+   </ItemGroup>
+   <ItemGroup>
+-    <Folder Include="App_Code\" />
+-    <Folder Include="App_Data\" />
+     <Folder Include="Models\" />
+   </ItemGroup>
+   <PropertyGroup>
