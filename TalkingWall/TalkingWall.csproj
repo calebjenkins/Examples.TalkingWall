@@ -79,6 +79,12 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebFormsMvp">
+      <HintPath>..\packages\WebFormsMvp.1.4.5.0\lib\WebFormsMvp.dll</HintPath>
+    </Reference>
+    <Reference Include="WebFormsMvp.Unity">
+      <HintPath>..\packages\WebFormsMvp.Unity.1.4.5.0\lib\WebFormsMvp.Unity.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap-theme.css" />
