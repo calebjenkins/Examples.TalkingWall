@@ -62,6 +62,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TalkingWall.Data\TalkingWall.Data.csproj">
+      <Project>{747e340e-6765-486d-a9e1-00ab4a927393}</Project>
+      <Name>TalkingWall.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TalkingWall.Domain\TalkingWall.Domain.csproj">
       <Project>{9d0c3b37-457f-4ab1-a145-8296b1c3c35a}</Project>
       <Name>TalkingWall.Domain</Name>

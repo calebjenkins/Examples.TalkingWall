@@ -1,35 +1,36 @@
-﻿using System;
+﻿using Microsoft.Practices.ServiceLocation;
+using Microsoft.Practices.Unity;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using TalkingWall.Data;
 using TalkingWall.Domain;
+using TalkingWall.UI.Presenters;
 
 namespace TalkingWall
 {
     public class Global : System.Web.HttpApplication
     {
-
-        public static Collection<WallMessage> Messages
+        public static IServiceLocator Container { get; private set; }
+        private IServiceLocator configureContainer()
         {
-            get
-            {
-                if (HttpContext.Current.Application["wall"] == null)
-                    HttpContext.Current.Application["wall"] = new Collection<WallMessage>();
+            IUnityContainer container = new UnityContainer();
+            container
+                .RegisterType<MainPagePresenter>()
+                .RegisterType<ITalkingWallView, defaultPage>(new PerThreadLifetimeManager())
+                .RegisterType<IWallData, MyDataProvider>();
 
-
-                return (Collection<WallMessage>)HttpContext.Current.Application["wall"];
-            }
-            set
-            {
-                HttpContext.Current.Application["wall"] = value;
-            }
+            return new UnityServiceLocator(container);
         }
+
+      
         protected void Application_Start(object sender, EventArgs e)
         {
-           Messages = new Collection<WallMessage>();
+           Container = configureContainer();
         }
 
         protected void Session_Start(object sender, EventArgs e)

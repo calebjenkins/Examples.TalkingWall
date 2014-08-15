@@ -18,7 +18,10 @@ namespace TalkingWall
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            presenter = new MainPagePresenter((ITalkingWallView)this, Global.Messages);
+            presenter = Global.Container.GetInstance<MainPagePresenter>();
+            presenter.Initialize((ITalkingWallView)this);
+
+            // presenter =  new MainPagePresenter((ITalkingWallView)this, new MyDataProvider());
         }
 
         protected void PostButton_Click(object sender, EventArgs e)

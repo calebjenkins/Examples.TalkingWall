@@ -4,6 +4,8 @@ using TalkingWall.UI.Presenters;
 using Rhino.Mocks;
 using System.Collections.Generic;
 using TalkingWall.Domain;
+using TalkingWall.Data;
+using System.Collections.ObjectModel;
 
 namespace TalkingWall.UI.Presenter.Tests.MainPage
 {
@@ -12,13 +14,15 @@ namespace TalkingWall.UI.Presenter.Tests.MainPage
     {
         ITalkingWallView _view;
         ICollection<WallMessage> _messages;
+        IWallData _data;
         MockRepository mocks;
 
 
         [TestInitialize]
         public void SetUp()
         {
-            _messages = MockRepository.GenerateMock<ICollection<WallMessage>>();
+            _messages = new Collection<WallMessage>(); // MockRepository.GenerateMock<ICollection<WallMessage>>();
+            _data = MockRepository.GenerateMock<IWallData>();
             _view = MockRepository.GenerateMock<ITalkingWallView>();
 
         }
@@ -28,15 +32,17 @@ namespace TalkingWall.UI.Presenter.Tests.MainPage
         {
 
             
-            _messages.Expect(x => x.Clear()).Repeat.Once();
+            _data.Expect(x => x.Messages.Clear()).Repeat.Once();
+         //   _data.Expect(x => x.Messages).Return(_messages).Repeat.Any;
 
             _view.Expect(x => x.BindData(_messages)).Repeat.Once();
 
-            MainPagePresenter presenter = new MainPagePresenter(_view, _messages);
+            MainPagePresenter presenter = new MainPagePresenter(_data);
+            presenter.Initialize(_view);
             _view.Raise(x => x.ClearMessagesClick += null, this, EventArgs.Empty);
 
             _view.VerifyAllExpectations();
-            _messages.VerifyAllExpectations();
+            // _messages.VerifyAllExpectations();
         }
     }
 }
