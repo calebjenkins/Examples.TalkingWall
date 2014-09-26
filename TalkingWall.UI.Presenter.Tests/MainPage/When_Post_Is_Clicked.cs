@@ -41,7 +41,7 @@ namespace TalkingWall.UI.Presenter.Tests.MainPage
             _view.Expect(x => x.BindData(_messages)).Repeat.Once();
 
             MainPagePresenter presenter = new MainPagePresenter( _data);
-            presenter.Initialize(_view);
+            presenter.Configure(_view);
             _view.Raise(x => x.PostMessageClick += null, this, EventArgs.Empty);
 
             _view.VerifyAllExpectations();

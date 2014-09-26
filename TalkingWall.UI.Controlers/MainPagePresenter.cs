@@ -18,7 +18,7 @@ namespace TalkingWall.UI.Presenters
             data = WallData;
         }
 
-        public void Initialize(ITalkingWallView view)
+        public void Configure(ITalkingWallView view)
         {
             _view = view;
             _view.PageLoad += view_PageLoad;

@@ -26,7 +26,7 @@ namespace TalkingWall.UI.Presenter.Tests.MainPage
         {
             _view.Expect(x => x.IsPostBack).Return(true).Repeat.Once();
             MainPagePresenter presenter = new MainPagePresenter( null);
-            presenter.Initialize(_view);
+            presenter.Configure(_view);
             _view.Raise(x => x.PageLoad += null, this, EventArgs.Empty);
 
             _view.VerifyAllExpectations();
@@ -37,7 +37,7 @@ namespace TalkingWall.UI.Presenter.Tests.MainPage
             _view.Expect(x => x.IsPostBack).Return(false).Repeat.Once();
             _view.Expect(x => x.BindData(null)).Repeat.Once();
             MainPagePresenter presenter = new MainPagePresenter( null);
-            presenter.Initialize(_view);
+            presenter.Configure(_view);
             _view.Raise(x => x.PageLoad += null, this, EventArgs.Empty);
            
             _view.VerifyAllExpectations();
@@ -48,7 +48,7 @@ namespace TalkingWall.UI.Presenter.Tests.MainPage
             _view.Expect(x => x.IsPostBack).Return(true).Repeat.Once();
             _view.Expect(x => x.BindData(null)).Repeat.Never();
             MainPagePresenter presenter = new MainPagePresenter( null);
-            presenter.Initialize(_view);
+            presenter.Configure(_view);
             _view.Raise(x => x.PageLoad += null, this, EventArgs.Empty);
 
             _view.VerifyAllExpectations();

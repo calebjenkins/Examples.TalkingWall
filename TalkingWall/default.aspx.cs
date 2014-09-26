@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TalkingWall.Domain;
 using TalkingWall.UI.Presenters;
+using Microsoft.Practices.Unity;
 
 namespace TalkingWall
 {
@@ -18,10 +19,9 @@ namespace TalkingWall
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            presenter = Global.Container.GetInstance<MainPagePresenter>();
-            presenter.Initialize((ITalkingWallView)this);
+            presenter = Global.Container.Resolve<MainPagePresenter>();
+            presenter.Configure((ITalkingWallView)this);
 
-            // presenter =  new MainPagePresenter((ITalkingWallView)this, new MyDataProvider());
         }
 
         protected void PostButton_Click(object sender, EventArgs e)

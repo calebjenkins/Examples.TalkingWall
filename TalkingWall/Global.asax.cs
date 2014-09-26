@@ -1,5 +1,4 @@
-﻿using Microsoft.Practices.ServiceLocation;
-using Microsoft.Practices.Unity;
+﻿using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,16 +14,15 @@ namespace TalkingWall
 {
     public class Global : System.Web.HttpApplication
     {
-        public static IServiceLocator Container { get; private set; }
-        private IServiceLocator configureContainer()
+        public static IUnityContainer Container { get; private set; }
+        private IUnityContainer configureContainer()
         {
             IUnityContainer container = new UnityContainer();
             container
                 .RegisterType<MainPagePresenter>()
-                .RegisterType<ITalkingWallView, defaultPage>(new PerThreadLifetimeManager())
                 .RegisterType<IWallData, MyDataProvider>();
 
-            return new UnityServiceLocator(container);
+            return container; // new UnityServiceLocator(container);
         }
 
       
